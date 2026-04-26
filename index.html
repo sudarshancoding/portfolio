@@ -6,7 +6,7 @@
 <title>Sudarshan Sharma — Machine Learning Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   /* ===== TOKENS ===== */
   :root {
@@ -20,8 +20,10 @@
     --accent-glow: rgba(59, 130, 246, 0.25);
     --accent-subtle: rgba(59, 130, 246, 0.08);
 
-    --font-display: 'Syne', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'Fira Code', monospace;
 
     --radius: 14px;
     --radius-sm: 8px;
@@ -63,9 +65,12 @@
     font-family: var(--font-body);
     background: var(--bg);
     color: var(--text-primary);
-    line-height: 1.6;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
     transition: background var(--transition), color var(--transition);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   a { text-decoration: none; color: inherit; }
   img { display: block; max-width: 100%; }
@@ -91,10 +96,10 @@
     height: 64px;
   }
   .nav-logo {
-    font-family: var(--font-display);
-    font-weight: 700; font-size: 1.1rem;
+    font-family: var(--font-heading);
+    font-weight: 700; font-size: 1.15rem;
     color: var(--text-primary);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
   }
   .nav-logo span { color: var(--accent); }
   .nav-links {
@@ -102,10 +107,11 @@
     list-style: none;
   }
   .nav-links a {
-    font-size: 0.875rem; font-weight: 400;
+    font-size: 0.875rem; font-weight: 500;
     color: var(--text-secondary);
     transition: color var(--transition);
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
+    font-family: var(--font-body);
   }
   .nav-links a:hover { color: var(--text-primary); }
   .theme-toggle {
@@ -189,9 +195,12 @@
     border: 1px solid var(--border-accent);
     border-radius: 99px;
     background: var(--accent-subtle);
-    font-size: 0.75rem; font-weight: 500;
+    font-size: 0.72rem; font-weight: 600;
+    font-family: var(--font-heading);
     color: var(--tag-color);
     margin-bottom: 1.5rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     opacity: 0; transform: translateY(20px);
     animation: revealUp 0.6s ease forwards 0.1s;
   }
@@ -206,24 +215,28 @@
   }
   .hero-name {
     font-family: var(--font-display);
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    font-weight: 800; line-height: 1.05;
-    letter-spacing: -0.04em;
+    font-size: clamp(3rem, 6.5vw, 5.5rem);
+    font-weight: 800; line-height: 1.0;
+    letter-spacing: -0.02em;
     color: var(--text-primary);
     opacity: 0; transform: translateY(25px);
     animation: revealUp 0.7s ease forwards 0.2s;
   }
   .hero-name-accent { color: var(--accent); }
   .hero-title {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--text-secondary); font-weight: 300;
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-secondary); font-weight: 500;
     margin-top: 0.75rem; margin-bottom: 1.5rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     opacity: 0; transform: translateY(20px);
     animation: revealUp 0.7s ease forwards 0.35s;
   }
   .hero-about {
-    font-size: 1rem; color: var(--text-secondary);
-    max-width: 560px; line-height: 1.75;
+    font-size: 1.05rem; color: var(--text-secondary);
+    max-width: 560px; line-height: 1.8;
+    font-weight: 300; letter-spacing: -0.01em;
     opacity: 0; transform: translateY(20px);
     animation: revealUp 0.7s ease forwards 0.45s;
   }
@@ -236,11 +249,11 @@
   .btn-primary {
     padding: 12px 28px;
     background: var(--accent);
-    color: #fff; font-weight: 500;
+    color: #fff; font-weight: 600;
     border-radius: var(--radius-sm);
     border: 1px solid var(--accent);
-    cursor: pointer; font-family: var(--font-body);
-    font-size: 0.9rem; letter-spacing: 0.01em;
+    cursor: pointer; font-family: var(--font-heading);
+    font-size: 0.85rem; letter-spacing: 0.03em;
     transition: all var(--transition);
     display: inline-flex; align-items: center; gap: 8px;
   }
@@ -252,11 +265,11 @@
   .btn-outline {
     padding: 12px 28px;
     background: transparent;
-    color: var(--text-primary); font-weight: 500;
+    color: var(--text-primary); font-weight: 600;
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
-    cursor: pointer; font-family: var(--font-body);
-    font-size: 0.9rem; letter-spacing: 0.01em;
+    cursor: pointer; font-family: var(--font-heading);
+    font-size: 0.85rem; letter-spacing: 0.03em;
     transition: all var(--transition);
     display: inline-flex; align-items: center; gap: 8px;
   }
@@ -319,20 +332,22 @@
   section { padding: 100px 2rem; }
   .container { max-width: 1100px; margin: 0 auto; }
   .section-label {
-    font-size: 0.7rem; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.2em;
+    font-size: 0.68rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.25em;
     color: var(--accent); margin-bottom: 0.75rem;
+    font-family: var(--font-heading);
   }
   .section-title {
     font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800; letter-spacing: -0.04em;
+    font-weight: 800; letter-spacing: -0.02em;
     color: var(--text-primary); margin-bottom: 1rem;
     line-height: 1.1;
   }
   .section-sub {
     color: var(--text-secondary); font-size: 1rem;
-    max-width: 520px; line-height: 1.7;
+    max-width: 520px; line-height: 1.75;
+    font-weight: 300; letter-spacing: -0.01em;
   }
   .section-head { margin-bottom: 3.5rem; }
 
@@ -363,9 +378,10 @@
     font-size: 1.2rem; margin-bottom: 1rem;
   }
   .skill-card-title {
-    font-family: var(--font-display);
-    font-size: 0.95rem; font-weight: 600;
+    font-family: var(--font-heading);
+    font-size: 0.9rem; font-weight: 600;
     color: var(--text-primary); margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
   }
   .skill-tags {
     display: flex; flex-wrap: wrap; gap: 6px;
@@ -375,7 +391,9 @@
     background: var(--tag-bg);
     color: var(--tag-color);
     border-radius: 99px;
-    font-size: 0.73rem; font-weight: 500;
+    font-size: 0.7rem; font-weight: 600;
+    font-family: var(--font-heading);
+    letter-spacing: 0.02em;
     border: 1px solid var(--border-accent);
   }
 
@@ -414,8 +432,9 @@
     flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;
   }
   .exp-role {
-    font-family: var(--font-display);
-    font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 1.05rem; font-weight: 700; color: var(--text-primary);
+    letter-spacing: -0.02em;
   }
   .exp-duration {
     font-size: 0.8rem; color: var(--accent);
@@ -488,13 +507,15 @@
   }
   .project-link:hover { color: var(--accent); }
   .project-name {
-    font-family: var(--font-display);
-    font-size: 1.05rem; font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1rem; font-weight: 700;
     color: var(--text-primary); margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
   }
   .project-desc {
     font-size: 0.875rem; color: var(--text-secondary);
-    line-height: 1.65; flex: 1; margin-bottom: 1.25rem;
+    line-height: 1.7; flex: 1; margin-bottom: 1.25rem;
+    font-weight: 300;
   }
   .project-lang {
     display: inline-flex; align-items: center; gap: 6px;
@@ -527,9 +548,10 @@
     font-size: 1.6rem; flex-shrink: 0;
   }
   .edu-degree {
-    font-family: var(--font-display);
-    font-size: 1.15rem; font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.1rem; font-weight: 700;
     color: var(--text-primary); margin-bottom: 0.3rem;
+    letter-spacing: -0.02em;
   }
   .edu-college {
     font-size: 0.9rem; color: var(--text-secondary);
@@ -601,8 +623,8 @@
   }
   .contact-cta-title {
     font-family: var(--font-display);
-    font-size: 1.5rem; font-weight: 700;
-    margin-bottom: 0.75rem;
+    font-size: 1.5rem; font-weight: 800;
+    margin-bottom: 0.75rem; letter-spacing: -0.02em;
   }
   .contact-cta-sub {
     color: var(--text-secondary); font-size: 0.9rem;
@@ -614,7 +636,9 @@
     padding: 2rem;
     border-top: 1px solid var(--border);
     text-align: center;
-    font-size: 0.8rem; color: var(--text-muted);
+    font-size: 0.78rem; color: var(--text-muted);
+    font-family: var(--font-heading);
+    letter-spacing: 0.03em;
   }
   footer span { color: var(--accent); }
 
@@ -643,10 +667,12 @@
   }
   .nav-mobile-menu.open { display: flex; }
   .nav-mobile-menu a {
-    font-size: 1.2rem; font-weight: 500;
+    font-size: 1.1rem; font-weight: 600;
+    font-family: var(--font-heading);
     color: var(--text-primary);
     padding: 0.5rem 0;
     border-bottom: 1px solid var(--border);
+    letter-spacing: -0.01em;
   }
 
   /* ===== RESPONSIVE ===== */
@@ -676,57 +702,88 @@
   }
   .resume-preview {
     padding: 2.5rem 3rem;
-    font-family: 'Georgia', serif;
-    font-size: 0.88rem;
+    font-family: var(--font-body);
+    font-size: 0.87rem;
     color: var(--text-primary);
-    line-height: 1.55;
-    min-height: 400px;
+    line-height: 1.6;
   }
-  .resume-preview h1 {
-    font-size: 1.4rem; font-weight: 700; text-align: center;
-    letter-spacing: 0.08em; margin-bottom: 0.3rem;
-    font-family: var(--font-display);
+  .r-header { text-align: center; margin-bottom: 0.5rem; }
+  .r-header h1 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem; font-weight: 700;
+    letter-spacing: 0.14em; margin-bottom: 0.3rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
   }
-  .resume-preview .r-divider {
-    border: none; border-top: 1px solid var(--text-primary);
+  .r-divider {
+    border: none; border-top: 1.5px solid var(--text-primary);
     margin: 0.3rem 0;
   }
-  .resume-preview .r-contact {
-    text-align: center; font-size: 0.8rem;
-    color: var(--text-secondary); margin-bottom: 0.9rem;
+  .r-contact {
+    font-size: 0.8rem; color: var(--text-secondary);
+    margin-top: 0.3rem;
   }
-  .resume-preview .r-contact a { color: var(--accent); }
-  .resume-preview .r-section-title {
+  .r-contact a { color: var(--accent); text-decoration: none; }
+  .r-contact a:hover { text-decoration: underline; }
+  .r-section-title {
     text-align: center; font-weight: 700;
-    font-size: 0.88rem; letter-spacing: 0.08em;
-    text-transform: uppercase; margin: 0.9rem 0 0.3rem;
-    font-family: var(--font-display);
+    font-size: 0.8rem; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0.85rem 0 0.2rem;
+    font-family: var(--font-heading);
+    color: var(--text-primary);
   }
-  .resume-preview .r-section-rule {
+  .r-section-rule {
     border: none; border-top: 1px solid var(--border);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
   }
-  .resume-preview .r-project-title {
+  .r-body-text {
+    font-size: 0.83rem; margin-bottom: 0.5rem;
+    line-height: 1.6; color: var(--text-secondary);
+  }
+  .r-project-header {
     display: flex; justify-content: space-between;
-    font-weight: 700; font-size: 0.85rem;
-    margin-bottom: 0.1rem;
+    align-items: baseline; gap: 1rem;
+    font-size: 0.85rem; margin-bottom: 0.15rem;
+    color: var(--text-primary);
   }
-  .resume-preview .r-project-title a { color: var(--accent); font-size:0.8rem; font-weight:400; }
-  .resume-preview .r-project-tech {
+  .r-project-header a {
+    color: var(--accent); font-weight: 400;
+    font-size: 0.8rem; white-space: nowrap;
+    text-decoration: none; flex-shrink: 0;
+  }
+  .r-project-header a:hover { text-decoration: underline; }
+  .r-project-tech {
     font-style: italic; font-size: 0.8rem;
     color: var(--text-secondary); margin-bottom: 0.25rem;
   }
-  .resume-preview ul { margin: 0.2rem 0 0.6rem 1.2rem; }
-  .resume-preview ul li { margin-bottom: 0.15rem; font-size: 0.83rem; }
-  .resume-preview .r-skill-row { margin-bottom: 0.25rem; font-size: 0.83rem; }
-  .resume-preview .r-skill-row strong { color: var(--text-primary); }
-  .resume-preview .r-edu-row {
-    display: flex; justify-content: space-between; font-weight: 700;
-    font-size: 0.85rem;
+  .r-list {
+    margin: 0.2rem 0 0.5rem 1.1rem;
+    padding: 0;
   }
-  .resume-preview .r-edu-sub {
-    display: flex; justify-content: space-between; font-size: 0.83rem;
-    margin-bottom: 0.3rem; font-weight: 600;
+  .r-list li {
+    font-size: 0.82rem; color: var(--text-secondary);
+    margin-bottom: 0.18rem; line-height: 1.55;
+  }
+  .r-skill-row {
+    font-size: 0.83rem; margin-bottom: 0.22rem;
+    color: var(--text-secondary); line-height: 1.5;
+  }
+  .r-skill-row strong { color: var(--text-primary); }
+  .r-edu-row {
+    display: flex; justify-content: space-between;
+    font-size: 0.85rem; font-weight: 700;
+    color: var(--text-primary); margin-bottom: 0.1rem;
+  }
+  .r-edu-sub {
+    display: flex; justify-content: space-between;
+    font-size: 0.83rem; margin-bottom: 0.3rem;
+    color: var(--text-secondary);
+  }
+  .r-flex-row {
+    display: flex; justify-content: space-between;
+    align-items: baseline; gap: 1rem;
+    font-size: 0.85rem; color: var(--text-primary);
   }
   .resume-actions {
     display: flex; gap: 0.75rem; flex-wrap: wrap;
@@ -735,15 +792,54 @@
     background: var(--bg-card);
   }
 
+  /* Secret LaTeX editor panel */
+  .latex-editor-bar {
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 0.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    padding: 0.85rem 1.25rem;
+  }
+  #latex-ta {
+    display: block; width: 100%;
+    height: 520px;
+    background: #0d1117; color: #c9d1d9;
+    border: 1px solid var(--border-accent);
+    border-top: none;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    padding: 1.25rem 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem; line-height: 1.65;
+    resize: vertical; outline: none; tab-size: 2;
+  }
+  #latex-ta:focus { border-color: var(--accent); }
+
   @media print {
-    nav, .hero-bg, #skills, #experience, #projects, #education,
-    #contact, footer, .resume-actions, #editor-prompt,
-    #latex-editor-wrap, .section-head { display: none !important; }
-    #resume { padding: 0 !important; }
-    .resume-preview-wrap { border: none !important; }
-    .resume-preview { padding: 1rem !important; color: #000 !important; }
-    .resume-preview a { color: #1d4ed8 !important; }
-    .resume-preview .r-divider, .resume-preview .r-section-rule { border-color: #000 !important; }
+    nav, #about, #skills, #experience, #projects,
+    #education, #contact, footer,
+    .resume-actions, #latex-editor-panel,
+    .section-head, .reveal:not(#resume .reveal) { display: none !important; }
+    #resume { padding: 0 !important; background: white !important; }
+    .resume-preview-wrap { border: none !important; box-shadow: none !important; }
+    .resume-preview {
+      padding: 1.5rem 2rem !important;
+      color: #000 !important;
+      font-size: 0.82rem !important;
+    }
+    .r-header h1 { color: #000 !important; }
+    .r-contact, .r-body-text, .r-skill-row,
+    .r-list li, .r-project-tech { color: #333 !important; }
+    .r-contact a, .r-project-header a { color: #1d4ed8 !important; }
+    .r-divider { border-color: #000 !important; }
+    .r-section-rule { border-color: #aaa !important; }
+    .r-edu-row, .r-project-header { color: #000 !important; }
+  }
+
+  @media (max-width: 768px) {
+    .resume-preview { padding: 1.25rem 1rem; }
+    .r-project-header { flex-direction: column; gap: 0.15rem; }
+    .r-edu-row, .r-edu-sub { flex-direction: column; gap: 0; }
   }
 </style>
 </head>
@@ -795,12 +891,12 @@
     <div class="hero-content">
       <div class="hero-badge">
         <div class="hero-badge-dot"></div>
-        <a href="#contact">Start a Conversation</a>
+        Available for opportunities
       </div>
       <h1 class="hero-name">
         Sudarshan<br /><span class="hero-name-accent">Sharma</span>
       </h1>
-      <p class="hero-title"><h1>Machine Learning Engineer</h1></p>
+      <p class="hero-title">Machine Learning Engineer</p>
       <p class="hero-about">
         Aspiring Data Scientist with a solid academic and practical foundation in Python, SQL, and Machine Learning. Proficient in using Pandas and NumPy for data wrangling, feature engineering, and data analysis. Experienced in building and evaluating ML models for classification and regression tasks — eager to deliver reliable insights and predictive solutions.
       </p>
@@ -1030,7 +1126,7 @@
             <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
           </a>
         </div>
-        <div class="project-name">Resume Project</div>
+        <div class="project-name">Resume</div>
         <div class="project-desc">A CSS-crafted resume project showcasing clean typography, responsive layout, and professional presentation skills built entirely with web technologies.</div>
         <div class="project-lang">
           <div class="lang-dot" style="background:#563d7c"></div>
@@ -1129,12 +1225,100 @@
 <section id="resume" style="background:var(--bg-card)">
   <div class="container">
     <div class="section-head reveal">
-      <p class="section-label">Download</p>
+      <p class="section-label">Resume</p>
       <h2 class="section-title">My Resume</h2>
       <p class="section-sub">A snapshot of my skills, projects and education. Download or view inline.</p>
     </div>
     <div class="resume-preview-wrap reveal">
-      <div class="resume-preview" id="resume-render"></div>
+
+      <!-- ══ RESUME BODY — rendered faithfully from LaTeX source ══ -->
+      <div class="resume-preview" id="resume-render">
+
+        <!-- Header -->
+        <div class="r-header">
+          <h1>SUDARSHAN SHARMA</h1>
+          <hr class="r-divider">
+          <div class="r-contact">
+            <a href="https://github.com/sudarshancoding" target="_blank">GitHub</a> &bull;
+            <a href="https://www.linkedin.com/in/sudarshan-sharma-08" target="_blank">LinkedIn</a> &bull;
+            sudarshan.office.sharma@gmail.com &bull; +91 8360865769 &bull; Mohali, India
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="r-section-title">SUMMARY</div>
+        <hr class="r-section-rule">
+        <p class="r-body-text">
+          Aspiring Data Scientist with a solid academic and practical foundation in <strong>Python, SQL, and Machine Learning</strong>.
+          Proficient in using Pandas and NumPy for data wrangling, feature engineering, and data analysis.
+          Experienced in building and evaluating ML models for <strong>classification and regression</strong> tasks.
+          Strong analytical mindset with a keen interest in solving real-world problems using data-driven techniques.
+        </p>
+
+        <!-- Projects -->
+        <div class="r-section-title">PROJECTS</div>
+        <hr class="r-section-rule">
+
+        <div class="r-project-header">
+          <strong>DIABETES PREDICTION USING SUPPORT VECTOR MACHINE</strong>
+          <a href="https://github.com/sudarshancoding/ml-projects/tree/main/Classification%20Project/Diabetes%20Prediction%20Project%20-%20SVM%20Project" target="_blank">GitHub</a>
+        </div>
+        <div class="r-project-tech">Python, Scikit-learn, SVM, Pandas, NumPy, Matplotlib, Seaborn</div>
+        <ul class="r-list">
+          <li>Built a <strong>binary classification model</strong> to predict diabetes onset using the Pima Indians Diabetes Dataset with Support Vector Machine (SVM).</li>
+          <li>Performed end-to-end <strong>data preprocessing</strong> &ndash; missing value treatment, feature scaling with StandardScaler, and stratified train-test split.</li>
+          <li>Evaluated model using <strong>accuracy, precision, recall, and F1-score</strong>; visualized feature correlations using Seaborn heatmaps to guide feature selection.</li>
+          <li>Applied <strong>hyperparameter tuning</strong> (kernel, C, gamma) to optimize SVM classification performance on healthcare data.</li>
+        </ul>
+
+        <div class="r-project-header" style="margin-top:0.6rem">
+          <strong>REGRESSION PROJECTS &ndash; PREDICTIVE MODELLING</strong>
+          <a href="https://github.com/sudarshancoding/ml-projects/tree/main/Regression%20Projects" target="_blank">GitHub</a>
+        </div>
+        <div class="r-project-tech">Python, Scikit-learn, Linear/Ridge/Polynomial Regression, Pandas, Matplotlib, Seaborn</div>
+        <ul class="r-list">
+          <li>Developed <strong>multiple regression models</strong> (Linear, Ridge, Polynomial) to predict continuous outcomes such as house prices and salary estimates.</li>
+          <li>Performed <strong>EDA and feature engineering</strong> &ndash; identified key predictors, handled outliers, and reduced multicollinearity to improve model reliability.</li>
+          <li>Benchmarked models using <strong>R&sup2; score, MAE, and RMSE</strong>; validated assumptions via residual plots and prediction curves.</li>
+          <li>Delivered well-documented Jupyter notebooks demonstrating the <strong>complete ML pipeline</strong> from raw data ingestion to final predictions.</li>
+        </ul>
+
+        <!-- Technical Skills -->
+        <div class="r-section-title" style="margin-top:0.5rem">TECHNICAL SKILLS</div>
+        <hr class="r-section-rule">
+        <div class="r-skill-row"><strong>Programming Languages:</strong> Python, SQL</div>
+        <div class="r-skill-row"><strong>Python Libraries:</strong> Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn</div>
+        <div class="r-skill-row"><strong>Machine Learning:</strong> Regression &amp; Classification Algorithms, Clustering Techniques, Model Training &amp; Evaluation, Feature Engineering, Hyperparameter Tuning, Cross-Validation, Support Vector Machines</div>
+        <div class="r-skill-row"><strong>Data Analysis:</strong> Data Cleaning, Data Transformation, Outlier Detection, Exploratory Data Analysis (EDA), Data Visualization</div>
+        <div class="r-skill-row"><strong>Databases:</strong> MySQL, SQL (Joins, Group By, Subqueries, Window Functions &ndash; Basic to Advanced)</div>
+        <div class="r-skill-row"><strong>Tools:</strong> Jupyter Notebook, Google Colab, Git, GitHub, VS Code</div>
+
+        <!-- Education -->
+        <div class="r-section-title" style="margin-top:0.6rem">EDUCATION</div>
+        <hr class="r-section-rule">
+        <div class="r-edu-row">
+          <strong>CHANDIGARH GROUP OF COLLEGES, JHANJERI</strong>
+          <span>CGPA: 7.88</span>
+        </div>
+        <div class="r-edu-sub">
+          <span>Bachelor of Technology in Computer Science and Engineering</span>
+          <span>2017 &ndash; 2021</span>
+        </div>
+        <ul class="r-list">
+          <li><strong>Relevant Coursework:</strong> Data Structures and Algorithms, Database Management Systems, Statistics and Probability, Machine Learning, Artificial Intelligence, Object-Oriented Programming.</li>
+          <li><strong>Certifications:</strong>
+            <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-PBAV8UZ1.jpg" target="_blank">Python &ndash; Udemy</a>,
+            <a href="https://www.hackerrank.com/certificates/e93deb1c9734" target="_blank">Python (Basic) &ndash; HackerRank</a>,
+            <a href="https://www.hackerrank.com/certificates/044376f97a59" target="_blank">SQL (Basic) &ndash; HackerRank</a>,
+            <a href="https://www.hackerrank.com/certificates/10a353d27503" target="_blank">SQL (Intermediate) &ndash; HackerRank</a>,
+            <a href="https://www.hackerrank.com/certificates/09622e473245" target="_blank">SQL (Advanced) &ndash; HackerRank</a>,
+            <a href="https://www.coursera.org/account/accomplishments/certificate/UEDDGW9V5SK6" target="_blank">Python for Data Science, AI Development</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- ══ END RESUME BODY ══ -->
+
       <div class="resume-actions">
         <button class="btn-primary" onclick="window.print()">
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
@@ -1146,12 +1330,34 @@
         </button>
       </div>
     </div>
+
+    <!-- ══ SECRET LATEX EDITOR — visible ONLY via ?edit in URL ══ -->
+    <div id="latex-editor-panel" style="display:none;margin-top:2.5rem">
+      <div class="latex-editor-bar">
+        <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--accent);font-weight:700">⚙️ LaTeX Source Editor &nbsp;·&nbsp; Owner Only</span>
+        <div style="display:flex;gap:0.75rem;align-items:center">
+          <button class="btn-outline" style="padding:7px 16px;font-size:0.8rem" onclick="applyLatexEdit()">
+            ▶ Apply &amp; Preview
+          </button>
+          <button class="btn-primary" style="padding:7px 16px;font-size:0.8rem" onclick="copyLatex()">
+            📋 Copy LaTeX
+          </button>
+        </div>
+      </div>
+      <textarea id="latex-ta" spellcheck="false" autocorrect="off" autocapitalize="off"></textarea>
+      <p style="font-size:0.72rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5">
+        ✏️ Edit LaTeX above → click <strong>Apply &amp; Preview</strong> to see it rendered instantly above.
+        To save permanently, copy the updated HTML and replace this file.
+        <br>Access this panel anytime at: <code style="color:var(--accent)">yoursite.com/index.html?edit</code>
+      </p>
+    </div>
+
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>Designed & built with ❤️ by <span>Sudarshan Sharma</span> · 2026</p>
+  <p>Designed & built with ❤️ by <span>Sudarshan Sharma</span> · 2025</p>
 </footer>
 
 <script>
@@ -1211,91 +1417,189 @@
         ? 'var(--accent)' : '';
     });
   });
-  /* ===== RESUME RENDERER ===== */
-  (function renderResume() {
-    const container = document.getElementById('resume-render');
-    if (!container) return;
+  /* ===== SECRET LATEX EDITOR (?edit in URL) ===== */
+  const LATEX_SOURCE = `\\documentclass[11pt]{article}
+\\usepackage{graphicx}
+\\usepackage{hyperref}
+\\usepackage{enumitem}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
+\\usepackage[english]{babel}
+\\usepackage[left=1.06cm,top=0.55cm,right=1.06cm,bottom=0.55cm]{geometry}
 
-    // Build the resume as structured HTML directly from LaTeX data
-    container.innerHTML = `
-      <div style="text-align:center;margin-bottom:0.6rem">
-        <h1 style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;letter-spacing:0.08em;margin-bottom:0.3rem">SUDARSHAN SHARMA</h1>
-        <hr class="r-divider">
-        <div class="r-contact">
-          <a href="https://github.com/sudarshancoding" target="_blank">GitHub</a> &bull;
-          <a href="https://www.linkedin.com/in/sudarshan-sharma-08" target="_blank">LinkedIn</a> &bull;
-          sudarshan.office.sharma@gmail.com &bull; +91 8360865769 &bull; Mohali, India
-        </div>
-      </div>
+\\setlength{\\parindent}{0pt}
+\\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=4mm}
 
-      <div class="r-section-title">SUMMARY</div>
-      <hr class="r-section-rule">
-      <p style="font-size:0.83rem;margin-bottom:0.8rem;line-height:1.6">
-        Aspiring Data Scientist with a solid academic and practical foundation in <strong>Python, SQL, and Machine Learning</strong>.
-        Proficient in using Pandas and NumPy for data wrangling, feature engineering, and data analysis.
-        Experienced in building and evaluating ML models for <strong>classification and regression</strong> tasks.
-        Strong analytical mindset with a keen interest in solving real-world problems using data-driven techniques.
-      </p>
+\\begin{document}
 
-      <div class="r-section-title">PROJECTS</div>
-      <hr class="r-section-rule">
+\\begin{center}
+\\textbf{SUDARSHAN SHARMA}
+\\vspace{0.1cm}
+\\hrule
+\\vspace{0.1cm}
+\\href{https://github.com/sudarshancoding}{GitHub} \\textbullet \\
+\\href{https://www.linkedin.com/in/sudarshan-sharma-08}{LinkedIn} \\textbullet \\
+sudarshan.office.sharma@gmail.com \\textbullet \\ +91 8360865769 \\textbullet \\ Mohali, India
+\\end{center}
 
-      <div class="r-project-title">
-        <span>DIABETES PREDICTION USING SUPPORT VECTOR MACHINE</span>
-        <a href="https://github.com/sudarshancoding/ml-projects/tree/main/Classification%20Project/Diabetes%20Prediction%20Project%20-%20SVM%20Project" target="_blank">GitHub</a>
-      </div>
-      <div class="r-project-tech">Python, Scikit-learn, SVM, Pandas, NumPy, Matplotlib, Seaborn</div>
-      <ul>
-        <li>Built a <strong>binary classification model</strong> to predict diabetes onset using the Pima Indians Diabetes Dataset with Support Vector Machine (SVM).</li>
-        <li>Performed end-to-end <strong>data preprocessing</strong> &ndash; missing value treatment, feature scaling with StandardScaler, and stratified train-test split.</li>
-        <li>Evaluated model using <strong>accuracy, precision, recall, and F1-score</strong>; visualized feature correlations using Seaborn heatmaps to guide feature selection.</li>
-        <li>Applied <strong>hyperparameter tuning</strong> (kernel, C, gamma) to optimize SVM classification performance on healthcare data.</li>
-      </ul>
+%----- SUMMARY ----------------------------------------------------------------
+\\begin{center}\\textbf{SUMMARY}\\end{center}
+Aspiring Data Scientist with a solid academic and practical foundation in \\textbf{Python, SQL, and Machine Learning}. Proficient in using Pandas and NumPy for data wrangling, feature engineering, and data analysis. Experienced in building and evaluating ML models for \\textbf{classification and regression} tasks. Strong analytical mindset with a keen interest in solving real-world problems using data-driven techniques.
 
-      <div class="r-project-title" style="margin-top:0.5rem">
-        <span>REGRESSION PROJECTS &ndash; PREDICTIVE MODELLING</span>
-        <a href="https://github.com/sudarshancoding/ml-projects/tree/main/Regression%20Projects" target="_blank">GitHub</a>
-      </div>
-      <div class="r-project-tech">Python, Scikit-learn, Linear/Ridge/Polynomial Regression, Pandas, Matplotlib, Seaborn</div>
-      <ul>
-        <li>Developed <strong>multiple regression models</strong> (Linear, Ridge, Polynomial) to predict continuous outcomes such as house prices and salary estimates.</li>
-        <li>Performed <strong>EDA and feature engineering</strong> &ndash; identified key predictors, handled outliers, and reduced multicollinearity to improve model reliability.</li>
-        <li>Benchmarked models using <strong>R&sup2; score, MAE, and RMSE</strong>; validated assumptions via residual plots and prediction curves.</li>
-        <li>Delivered well-documented Jupyter notebooks demonstrating the <strong>complete ML pipeline</strong> from raw data ingestion to final predictions.</li>
-      </ul>
+%----- PROJECTS ---------------------------------------------------------------
+\\begin{center}\\textbf{PROJECTS}\\end{center}
 
-      <div class="r-section-title" style="margin-top:0.6rem">TECHNICAL SKILLS</div>
-      <hr class="r-section-rule">
-      <div class="r-skill-row"><strong>Programming Languages:</strong> Python, SQL</div>
-      <div class="r-skill-row"><strong>Python Libraries:</strong> Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn</div>
-      <div class="r-skill-row"><strong>Machine Learning:</strong> Regression &amp; Classification Algorithms, Clustering Techniques, Model Training &amp; Evaluation, Feature Engineering, Hyperparameter Tuning, Cross-Validation, Support Vector Machines</div>
-      <div class="r-skill-row"><strong>Data Analysis:</strong> Data Cleaning, Data Transformation, Outlier Detection, Exploratory Data Analysis (EDA), Data Visualization</div>
-      <div class="r-skill-row"><strong>Databases:</strong> MySQL, SQL (Joins, Group By, Subqueries, Window Functions &ndash; Basic to Advanced)</div>
-      <div class="r-skill-row"><strong>Tools:</strong> Jupyter Notebook, Google Colab, Git, GitHub, VS Code</div>
+\\textbf{DIABETES PREDICTION USING SUPPORT VECTOR MACHINE} \\hfill
+\\href{https://github.com/sudarshancoding/ml-projects/tree/main/Classification\\%20Project/Diabetes\\%20Prediction\\%20Project\\%20-\\%20SVM\\%20Project}{GitHub} \\\\
+\\textit{Python, Scikit-learn, SVM, Pandas, NumPy, Matplotlib, Seaborn}
+\\begin{itemize}
+\\item Built a \\textbf{binary classification model} to predict diabetes onset using the Pima Indians Diabetes Dataset with Support Vector Machine (SVM).
+\\item Performed end-to-end \\textbf{data preprocessing} -- missing value treatment, feature scaling with StandardScaler, and stratified train-test split.
+\\item Evaluated model using \\textbf{accuracy, precision, recall, and F1-score}; visualized feature correlations using Seaborn heatmaps to guide feature selection.
+\\item Applied \\textbf{hyperparameter tuning} (kernel, C, gamma) to optimize SVM classification performance on healthcare data.
+\\end{itemize}
 
-      <div class="r-section-title" style="margin-top:0.75rem">EDUCATION</div>
-      <hr class="r-section-rule">
-      <div class="r-edu-row">
-        <span>CHANDIGARH GROUP OF COLLEGES, JHANJERI</span>
-        <span>CGPA: 7.88</span>
-      </div>
-      <div class="r-edu-sub">
-        <span>Bachelor of Technology in Computer Science and Engineering</span>
-        <span>2017 &ndash; 2021</span>
-      </div>
-      <ul>
-        <li><strong>Relevant Coursework:</strong> Data Structures and Algorithms, Database Management Systems, Statistics and Probability, Machine Learning, Artificial Intelligence, Object-Oriented Programming.</li>
-        <li><strong>Certifications:</strong>
-          <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-PBAV8UZ1.jpg" target="_blank">Python &ndash; Udemy</a>,
-          <a href="https://www.hackerrank.com/certificates/e93deb1c9734" target="_blank">Python (Basic) &ndash; HackerRank</a>,
-          <a href="https://www.hackerrank.com/certificates/044376f97a59" target="_blank">SQL (Basic) &ndash; HackerRank</a>,
-          <a href="https://www.hackerrank.com/certificates/10a353d27503" target="_blank">SQL (Intermediate) &ndash; HackerRank</a>,
-          <a href="https://www.hackerrank.com/certificates/09622e473245" target="_blank">SQL (Advanced) &ndash; HackerRank</a>,
-          <a href="https://www.coursera.org/account/accomplishments/certificate/UEDDGW9V5SK6" target="_blank">Python for Data Science, AI Development</a>
-        </li>
-      </ul>
-    `;
+\\textbf{REGRESSION PROJECTS -- PREDICTIVE MODELLING} \\hfill
+\\href{https://github.com/sudarshancoding/ml-projects/tree/main/Regression\\%20Projects}{GitHub} \\\\
+\\textit{Python, Scikit-learn, Linear/Ridge/Polynomial Regression, Pandas, Matplotlib, Seaborn}
+\\begin{itemize}
+\\item Developed \\textbf{multiple regression models} (Linear, Ridge, Polynomial) to predict continuous outcomes such as house prices and salary estimates.
+\\item Performed \\textbf{EDA and feature engineering} -- identified key predictors, handled outliers, and reduced multicollinearity to improve model reliability.
+\\item Benchmarked models using \\textbf{R\\textsuperscript{2} score, MAE, and RMSE}; validated assumptions via residual plots and prediction curves.
+\\item Delivered well-documented Jupyter notebooks demonstrating the \\textbf{complete ML pipeline} from raw data ingestion to final predictions.
+\\end{itemize}
+
+%----- TECHNICAL SKILLS -------------------------------------------------------
+\\begin{center}\\textbf{TECHNICAL SKILLS}\\end{center}
+
+\\textbf{Programming Languages:} Python, SQL
+
+\\textbf{Python Libraries:} Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
+
+\\textbf{Machine Learning:} Regression \\& Classification Algorithms, Clustering Techniques, Model Training \\& Evaluation, \\textbf{Feature Engineering}, \\textbf{Hyperparameter Tuning}, Cross-Validation, Support Vector Machines
+
+\\textbf{Data Analysis:} Data Cleaning, Data Transformation, Outlier Detection, \\textbf{Exploratory Data Analysis (EDA)}, Data Visualization
+
+\\textbf{Databases:} MySQL, SQL (Joins, Group By, Subqueries, Window Functions -- Basic to Advanced)
+
+\\textbf{Tools:} Jupyter Notebook, Google Colab, Git, GitHub, VS Code
+
+%----- EDUCATION --------------------------------------------------------------
+\\begin{center}\\textbf{EDUCATION}\\end{center}
+
+\\textbf{CHANDIGARH GROUP OF COLLEGES, JHANJERI} \\hfill CGPA: 7.88 \\\\
+\\textbf{Bachelor of Technology in Computer Science and Engineering} \\hfill 2017 -- 2021
+
+\\begin{itemize}
+\\item \\textbf{Relevant Coursework:} Data Structures and Algorithms, Database Management Systems, Statistics and Probability, Machine Learning, Artificial Intelligence, Object-Oriented Programming.
+\\item \\textbf{Certifications:}
+\\href{https://udemy-certificate.s3.amazonaws.com/image/UC-PBAV8UZ1.jpg}{Python -- Udemy},
+\\href{https://www.hackerrank.com/certificates/e93deb1c9734}{Python (Basic) -- HackerRank},
+\\href{https://www.hackerrank.com/certificates/044376f97a59}{SQL (Basic) -- HackerRank},
+\\href{https://www.hackerrank.com/certificates/10a353d27503}{SQL (Intermediate) -- HackerRank},
+\\href{https://www.hackerrank.com/certificates/09622e473245}{SQL (Advanced) -- HackerRank},
+\\href{https://www.coursera.org/account/accomplishments/certificate/UEDDGW9V5SK6}{Python for Data Science, AI Development}
+\\end{itemize}
+
+\\end{document}`;
+
+  // Show editor panel only when ?edit is in the URL — invisible to regular visitors
+  (function checkEditMode() {
+    if (window.location.search.includes('edit') || window.location.hash === '#edit') {
+      const panel = document.getElementById('latex-editor-panel');
+      if (panel) {
+        panel.style.display = 'block';
+        document.getElementById('latex-ta').value = LATEX_SOURCE;
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
   })();
+
+  // Parse LaTeX → HTML and inject into #resume-render
+  function applyLatexEdit() {
+    const src = document.getElementById('latex-ta').value;
+    const html = latexToHtml(src);
+    document.getElementById('resume-render').innerHTML = html;
+    document.getElementById('resume-render').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function copyLatex() {
+    const src = document.getElementById('latex-ta').value;
+    navigator.clipboard.writeText(src).then(() => {
+      const btn = event.target;
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = '📋 Copy LaTeX', 2000);
+    });
+  }
+
+  // Full LaTeX → HTML converter
+  function latexToHtml(src) {
+    // Extract body
+    const bodyMatch = src.match(/\\begin\{document\}([\s\S]*?)\\end\{document\}/);
+    let s = bodyMatch ? bodyMatch[1] : src;
+
+    // Remove preamble comments
+    s = s.replace(/%-+[^\n]*/g, '');
+
+    // center blocks
+    s = s.replace(/\\begin\{center\}([\s\S]*?)\\end\{center\}/g, (_, c) =>
+      `<div class="r-section-title">${c.trim().replace(/\\textbf\{([^}]+)\}/, '$1')}</div><hr class="r-section-rule">`);
+
+    // textbf, textit
+    s = s.replace(/\\textbf\{([^}]+)\}/g, '<strong>$1</strong>');
+    s = s.replace(/\\textit\{([^}]+)\}/g, '<em>$1</em>');
+    s = s.replace(/\\textsuperscript\{([^}]+)\}/g, '<sup>$1</sup>');
+
+    // href
+    s = s.replace(/\\href\{([^}]+)\}\{([^}]+)\}/g, '<a href="$1" target="_blank">$2</a>');
+
+    // hfill → push right with flex
+    s = s.replace(/\\hfill/g, '__HFILL__');
+
+    // hrule
+    s = s.replace(/\\hrule/g, '<hr class="r-divider">');
+    s = s.replace(/\\vspace\{[^}]+\}/g, '');
+
+    // textbullet
+    s = s.replace(/\\textbullet\s*\\\\/g, ' &bull; ');
+    s = s.replace(/\\textbullet/g, ' &bull; ');
+
+    // & → &amp; (but not already escaped)
+    s = s.replace(/\\&/g, '&amp;');
+
+    // itemize
+    s = s.replace(/\\begin\{itemize\}([\s\S]*?)\\end\{itemize\}/g, (_, inner) => {
+      const items = inner.split(/\\item\s+/).filter(Boolean).map(i =>
+        `<li>${i.trim().replace(/\n/g, ' ')}</li>`).join('');
+      return `<ul class="r-list">${items}</ul>`;
+    });
+
+    // Lines with __HFILL__ → flex row
+    s = s.replace(/([^\n]+)__HFILL__([^\n]+)/g, (_, l, r) =>
+      `<div class="r-flex-row"><span>${l.trim()}</span><span>${r.trim()}</span></div>`);
+
+    // \\ line break
+    s = s.replace(/\\\\/g, '<br>');
+
+    // -- → en dash
+    s = s.replace(/--/g, '&ndash;');
+
+    // Clean remaining LaTeX commands
+    s = s.replace(/\\[a-zA-Z]+(\[[^\]]*\])?(\{[^}]*\})?/g, '');
+    s = s.replace(/[{}]/g, '');
+
+    // Paragraphs
+    const lines = s.split('\n').map(l => l.trim()).filter(Boolean);
+    let html = '';
+    for (const line of lines) {
+      if (line.startsWith('<')) {
+        html += line;
+      } else {
+        html += `<p class="r-body-text">${line}</p>`;
+      }
+    }
+    return html;
+  }
 </script>
 </body>
 </html>
