@@ -1448,11 +1448,11 @@
       <!-- ══ END RESUME BODY ══ -->
 
       <div class="resume-actions">
-        <button class="btn-primary" onclick="window.print()">
+        <button class="btn-primary" onclick="downloadResumePDF()">
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
           Download PDF
         </button>
-        <button class="btn-outline" onclick="window.print()">
+        <button class="btn-outline" onclick="printResume()">
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
           Print
         </button>
@@ -1545,7 +1545,70 @@
         ? 'var(--accent)' : '';
     });
   });
-  /* ===== SECRET LATEX EDITOR (?edit in URL) ===== */
+  /* ===== RESUME PRINT / DOWNLOAD ===== */
+  function openResumePrintWindow(autoPrint) {
+    const resumeContent = document.getElementById('resume-render').innerHTML;
+
+    const css = [
+      '* { box-sizing: border-box; margin: 0; padding: 0; }',
+      'html, body { background: #fff; font-family: Times New Roman, Times, serif; font-size: 11pt; color: #000; line-height: 1.35; -webkit-print-color-adjust: exact; print-color-adjust: exact; }',
+      'body { padding: 0.55cm 1.06cm 1.2cm; }',
+      '.r-header { text-align: center; margin-bottom: 2pt; }',
+      '.r-header h1 { font-family: Arial, Helvetica, sans-serif; font-size: 13pt; font-weight: bold; letter-spacing: 0.08em; margin: 0 0 3pt; }',
+      '.r-divider { border: none; border-top: 1pt solid #000; margin: 2pt 0; }',
+      '.r-contact { font-family: Arial, Helvetica, sans-serif; font-size: 9pt; color: #000; margin: 2pt 0 0; }',
+      '.r-contact a { color: #000; text-decoration: none; }',
+      '.r-section-title { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: center; text-transform: uppercase; letter-spacing: 0.05em; margin: 6pt 0 1pt; }',
+      '.r-section-rule { border: none; border-top: 0.5pt solid #444; margin: 0 0 3pt; }',
+      '.r-body-text { font-size: 10.5pt; margin: 0 0 3pt; line-height: 1.38; }',
+      '.r-project-header { display: flex; justify-content: space-between; align-items: baseline; font-size: 10.5pt; font-weight: bold; margin: 3pt 0 0; }',
+      '.r-project-header a { color: #000; font-weight: bold; text-decoration: none; font-size: 10pt; }',
+      '.r-project-tech { font-style: italic; font-size: 10pt; margin: 0 0 1pt; }',
+      '.r-list { margin: 1pt 0 2pt 4mm; padding: 0; list-style: disc; }',
+      '.r-list li { font-size: 10pt; line-height: 1.32; margin: 0; }',
+      '.r-skill-row { font-size: 10pt; margin: 0.5pt 0; line-height: 1.32; }',
+      '.r-edu-row { display: flex; justify-content: space-between; font-size: 10.5pt; font-weight: bold; margin: 0; }',
+      '.r-edu-sub { display: flex; justify-content: space-between; font-size: 10pt; margin: 0 0 1pt; }',
+      'a { color: #000; text-decoration: none; }',
+      '.r-print-brand { position: fixed; bottom: 0.35cm; left: 0; right: 0; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-style: italic; color: #999; border-top: 0.3pt solid #ddd; padding-top: 2pt; }',
+      '.r-print-brand a { color: #999; }',
+      '@page { margin: 0; size: A4 portrait; }'
+    ].join('\n');
+
+    const win = window.open('', '_blank', 'width=870,height=1130');
+    if (!win) {
+      alert('Popup blocked! Please allow popups for this site and try again.');
+      return;
+    }
+
+    const doc = win.document;
+    doc.open();
+    doc.write('<!DOCTYPE html><html lang="en"><head>');
+    doc.write('<meta charset="UTF-8">');
+    doc.write('<title>Sudarshan Sharma - Resume</title>');
+    doc.write('<style>' + css + '</style>');
+    doc.write('</head><body>');
+    doc.write(resumeContent);
+    doc.write('</body></html>');
+    doc.close();
+
+    win.focus();
+    if (autoPrint) {
+      setTimeout(function() {
+        win.print();
+        win.addEventListener('afterprint', function() { win.close(); });
+      }, 700);
+    }
+  }
+
+  function printResume() {
+    openResumePrintWindow(true);
+  }
+
+  function downloadResumePDF() {
+    openResumePrintWindow(true);
+  }
+
   const LATEX_SOURCE = `\\documentclass[11pt]{article}
 \\usepackage{graphicx}
 \\usepackage{hyperref}
