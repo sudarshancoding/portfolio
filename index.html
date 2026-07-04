@@ -698,27 +698,52 @@
         height: 240px;
     } */
 
-     .hero-photo-wrap {
-        order: -1;
+     @media (max-width: 768px) {
+
+    #hero {
+        min-height: auto;
+        padding: 85px 20px 40px;
+    }
+
+    .hero-inner {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        margin: 1rem 0 1.5rem;
+        text-align: center;
+        gap: 18px;
+    }
+
+    .hero-photo-wrap {
+        margin: 0;
     }
 
     .hero-photo-ring {
-        width: 165px;
-        height: 165px;
-        padding: 4px;
+        width: 145px;
+        height: 145px;
+        padding: 3px;
     }
 
     .hero-photo {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
+        border-width: 3px;
         object-fit: cover;
-        object-position: center 20%;
-        border: 3px solid var(--bg);
+        object-position: center top;
+    }
+
+    .hero-badge {
+        margin: 0;
+    }
+
+    .hero-name {
+        margin-top: 8px;
+        line-height: 0.95;
+    }
+
+    .hero-role {
+        margin-top: 8px;
+    }
+
+    .hero-description {
+        margin-top: 10px;
     }
 
     /* --------------------- */
