@@ -698,26 +698,27 @@
         height: 240px;
     } */
 
-    .hero-photo-wrap {
+     .hero-photo-wrap {
         order: -1;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 1.5rem;
+        margin: 1rem 0 1.5rem;
     }
 
     .hero-photo-ring {
-        width: 180px;
-        height: 180px;
+        width: 165px;
+        height: 165px;
         padding: 4px;
     }
 
     .hero-photo {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        object-position: center top; /* Keeps your face centered */
         border-radius: 50%;
+        object-fit: cover;
+        object-position: center 20%;
+        border: 3px solid var(--bg);
     }
 
     /* --------------------- */
