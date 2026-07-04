@@ -687,7 +687,7 @@
         text-align: center;
     }
 
-    .hero-photo-wrap {
+    /* .hero-photo-wrap {
         order: -1;
         display: flex;
         justify-content: center;
@@ -696,7 +696,31 @@
     .hero-photo-ring {
         width: 240px;
         height: 240px;
+    } */
+
+    .hero-photo-wrap {
+        order: -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1.5rem;
     }
+
+    .hero-photo-ring {
+        width: 180px;
+        height: 180px;
+        padding: 4px;
+    }
+
+    .hero-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top; /* Keeps your face centered */
+        border-radius: 50%;
+    }
+
+    /* --------------------- */
 
     .hero-about { margin: 0 auto; }
     .hero-cta { justify-content: center; }
