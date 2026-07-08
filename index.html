@@ -853,90 +853,217 @@
     openResumePrintWindow(true);
   }
 
-  const LATEX_SOURCE = `\\documentclass[11pt]{article}
-\\usepackage{graphicx}
-\\usepackage{hyperref}
-\\usepackage{enumitem}
-\\usepackage[utf8]{inputenc}
-\\usepackage[T1]{fontenc}
-\\usepackage[english]{babel}
-\\usepackage[left=1.06cm,top=0.55cm,right=1.06cm,bottom=0.55cm]{geometry}
+  const LATEX_SOURCE = `\documentclass[10.5pt]{article}
 
-\\setlength{\\parindent}{0pt}
-\\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=4mm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[left=2.0cm,top=1.8cm,right=2.0cm,bottom=1.8cm]{geometry}
+\usepackage{xcolor}
+\usepackage{microtype}
 
-\\begin{document}
+% Use Palatino font (matches the PDF's serif look closely)
+\usepackage{palatino}
 
-\\begin{center}
-\\textbf{SUDARSHAN SHARMA}
-\\vspace{0.1cm}
-\\hrule
-\\vspace{0.1cm}
-\\href{https://github.com/sudarshancoding}{GitHub} \\textbullet \\
-\\href{https://www.linkedin.com/in/sudarshan-sharma-08}{LinkedIn} \\textbullet \\
-sudarshan.office.sharma@gmail.com \\textbullet \\ +91 8360865769 \\textbullet \\ Mohali, India
-\\end{center}
+\definecolor{sectionblue}{RGB}{31, 84, 147}
 
-%----- SUMMARY ----------------------------------------------------------------
-\\begin{center}\\textbf{SUMMARY}\\end{center}
-Aspiring Data Scientist with a solid academic and practical foundation in \\textbf{Python, SQL, and Machine Learning}. Proficient in using Pandas and NumPy for data wrangling, feature engineering, and data analysis. Experienced in building and evaluating ML models for \\textbf{classification and regression} tasks. Strong analytical mindset with a keen interest in solving real-world problems using data-driven techniques.
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
 
-%----- PROJECTS ---------------------------------------------------------------
-\\begin{center}\\textbf{PROJECTS}\\end{center}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=sectionblue,
+  linkcolor=sectionblue
+}
 
-\\textbf{DIABETES PREDICTION USING SUPPORT VECTOR MACHINE} \\hfill
-\\href{https://github.com/sudarshancoding/ml-projects/tree/main/Classification\\%20Project/Diabetes\\%20Prediction\\%20Project\\%20-\\%20SVM\\%20Project}{GitHub} \\\\
-\\textit{Python, Scikit-learn, SVM, Pandas, NumPy, Matplotlib, Seaborn}
-\\begin{itemize}
-\\item Built a \\textbf{binary classification model} to predict diabetes onset using the Pima Indians Diabetes Dataset with Support Vector Machine (SVM).
-\\item Performed end-to-end \\textbf{data preprocessing} -- missing value treatment, feature scaling with StandardScaler, and stratified train-test split.
-\\item Evaluated model using \\textbf{accuracy, precision, recall, and F1-score}; visualized feature correlations using Seaborn heatmaps to guide feature selection.
-\\item Applied \\textbf{hyperparameter tuning} (kernel, C, gamma) to optimize SVM classification performance on healthcare data.
-\\end{itemize}
+% No page numbers
+\pagestyle{empty}
 
-\\textbf{REGRESSION PROJECTS -- PREDICTIVE MODELLING} \\hfill
-\\href{https://github.com/sudarshancoding/ml-projects/tree/main/Regression\\%20Projects}{GitHub} \\\\
-\\textit{Python, Scikit-learn, Linear/Ridge/Polynomial Regression, Pandas, Matplotlib, Seaborn}
-\\begin{itemize}
-\\item Developed \\textbf{multiple regression models} (Linear, Ridge, Polynomial) to predict continuous outcomes such as house prices and salary estimates.
-\\item Performed \\textbf{EDA and feature engineering} -- identified key predictors, handled outliers, and reduced multicollinearity to improve model reliability.
-\\item Benchmarked models using \\textbf{R\\textsuperscript{2} score, MAE, and RMSE}; validated assumptions via residual plots and prediction curves.
-\\item Delivered well-documented Jupyter notebooks demonstrating the \\textbf{complete ML pipeline} from raw data ingestion to final predictions.
-\\end{itemize}
+% Section heading: left-aligned, spaced caps, blue, with rule below
+\newcommand{\ressection}[1]{%
+  \vspace{14pt}%
+  {\color{sectionblue}\large\textbf{\textls[120]{#1}}}\\[-6pt]%
+  \textcolor{sectionblue}{\rule{\linewidth}{0.8pt}}%
+  \vspace{6pt}%
+}
 
-%----- TECHNICAL SKILLS -------------------------------------------------------
-\\begin{center}\\textbf{TECHNICAL SKILLS}\\end{center}
+\usepackage{letterspace} % for \textls
 
-\\textbf{Programming Languages:} Python, SQL
+\setlist[itemize]{
+  noitemsep,
+  topsep=3pt,
+  partopsep=0pt,
+  leftmargin=14pt,
+  itemsep=2pt,
+  label=\textbullet
+}
 
-\\textbf{Python Libraries:} Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
+\begin{document}
 
-\\textbf{Machine Learning:} Regression \\& Classification Algorithms, Clustering Techniques, Model Training \\& Evaluation, \\textbf{Feature Engineering}, \\textbf{Hyperparameter Tuning}, Cross-Validation, Support Vector Machines
+% ============================================================
+% HEADER
+% ============================================================
+\begin{center}
+  {\LARGE\bfseries\textls[200]{SUDARSHAN SHARMA}}\\[6pt]
+  {\small
+    \href{https://github.com/sudarshancoding}{GitHub} \enspace\textbullet\enspace
+    \href{https://www.linkedin.com/in/sudarshan-sharma-08}{LinkedIn} \enspace\textbullet\enspace
+    sudarshan.office.sharma@gmail.com \enspace\textbullet\enspace
+    +91 8360865769 \enspace\textbullet\enspace
+    Mohali, India \enspace\textbullet\enspace
+    \href{https://portfolio-roan-rho-23.vercel.app/}{Portfolio}
+  }
+\end{center}
+\vspace{-1pt}
+\textcolor{black}{\rule{\linewidth}{0.4pt}}
+\vspace{1pt}
 
-\\textbf{Data Analysis:} Data Cleaning, Data Transformation, Outlier Detection, \\textbf{Exploratory Data Analysis (EDA)}, Data Visualization
+% ============================================================
+% SUMMARY
+% ============================================================
+\ressection{S U M M A R Y}
 
-\\textbf{Databases:} MySQL, SQL (Joins, Group By, Subqueries, Window Functions -- Basic to Advanced)
+Data Scientist / Machine Learning Engineer with 2+ years of experience in Python, SQL, and Machine Learning.
+Proficient in using Pandas and NumPy for data wrangling, feature engineering, and data analysis. Experienced in
+building and evaluating ML models for classification and regression tasks. Strong analytical mindset with a keen interest
+in solving real-world problems using data-driven techniques.
 
-\\textbf{Tools:} Jupyter Notebook, Google Colab, Git, GitHub, VS Code
+% ============================================================
+% EXPERIENCE
+% ============================================================
+\ressection{E X P E R I E N C E}
 
-%----- EDUCATION --------------------------------------------------------------
-\\begin{center}\\textbf{EDUCATION}\\end{center}
+\textbf{BEXO.AI} \hfill \textit{June 2026 -- Present}\\
+\textit{AI/ML Training} %\href{https://drive.google.com/file/d/1LTh1SgqNqeReSCSAuInOmoE7O4FCBkpg/view}{Certificate Link}
+\hfill Mohali 
+\vspace{3pt}
+\begin{itemize}
+  \item Undergoing hands-on training in advanced AI/ML concepts, model development, and applied data science workflows.
+  \item Working on real-world AI/ML training tasks to strengthen practical skills in model building, evaluation, and deployment.
+\end{itemize}
 
-\\textbf{CHANDIGARH GROUP OF COLLEGES, JHANJERI} \\hfill CGPA: 7.88 \\\\
-\\textbf{Bachelor of Technology in Computer Science and Engineering} \\hfill 2017 -- 2021
+\vspace{10pt}
 
-\\begin{itemize}
-\\item \\textbf{Relevant Coursework:} Data Structures and Algorithms, Database Management Systems, Statistics and Probability, Machine Learning, Artificial Intelligence, Object-Oriented Programming.
-\\item \\textbf{Certifications:}
-\\href{https://udemy-certificate.s3.amazonaws.com/image/UC-PBAV8UZ1.jpg}{Python -- Udemy},
-\\href{https://www.hackerrank.com/certificates/e93deb1c9734}{Python (Basic) -- HackerRank},
-\\href{https://www.hackerrank.com/certificates/044376f97a59}{SQL (Basic) -- HackerRank},
-\\href{https://www.hackerrank.com/certificates/10a353d27503}{SQL (Intermediate) -- HackerRank},
-\\href{https://www.hackerrank.com/certificates/09622e473245}{SQL (Advanced) -- HackerRank},
-\\href{https://www.coursera.org/account/accomplishments/certificate/UEDDGW9V5SK6}{Python for Data Science, AI Development}
-\\end{itemize}
+\textbf{Drift Technologies} \hfill \textit{Apr 2024 -- May 2026}\\
+\textit{Junior ML Engineer (Full-Time)} \hfill Chandigarh, India (On-Site)
+\vspace{3pt}
+\begin{itemize}
+  \item Developing basic Machine Learning models.
+  \item Performing data preprocessing and data cleaning tasks.
+  \item Implementing feature engineering techniques to improve model performance.
+  \item Evaluating and testing ML models using appropriate metrics and methodologies.
+  \item Assisting in the development and improvement of AI-based solutions.
+\end{itemize}
 
-\\end{document}`;
+\vspace{10pt}
+
+\textbf{Macrew Technologies Pvt Ltd} \hfill \textit{July 2022 -- March 2024}\\
+\textit{SEO Executive (Full-Time)} \hfill Mohali, India (On-Site)
+\vspace{3pt}
+\end{itemize}
+
+\vspace{10pt}
+
+\textbf{Primotech} \hfill \textit{March 2021 -- June 2022}\\
+\textit{SEO Analyst (Full-Time)} \hfill Mohali, India (On-Site)
+\vspace{3pt}
+\end{itemize}
+
+% ============================================================
+% PROJECTS
+% ============================================================
+\ressection{P R O J E C T S}
+
+\textbf{Smart Parking Space Counter Using OpenCV} \hfill
+\href{https://github.com/sudarshancoding/ml-projects/tree/main/parking-space-counter-using-openCV}{GitHub}\\
+\textit{Python, OpenCV, NumPy, CVZone, JSON, Computer Vision, Image Processing}
+\vspace{3pt}
+\begin{itemize}
+  \item Developed a real-time smart parking space detection system using Python and OpenCV to identify vacant and occupied parking slots from video footage.
+  \item Implemented image preprocessing techniques including grayscale conversion, Gaussian blur, adaptive thresholding, median filtering, and morphological dilation to improve detection accuracy.
+  \item Built a parking slot annotation tool to mark parking regions interactively and stored slot coordinates in JSON format for efficient reuse.
+  \item Designed a pixel-based occupancy detection algorithm to analyze each parking space, display live availability, and provide real-time parking statistics.
+\end{itemize}
+
+\vspace{10pt}
+
+\textbf{Diabetes Prediction Using Support Vector Machine} \hfill
+\href{https://github.com/sudarshancoding/ml-projects/tree/main/Classification\%20Project/Diabetes\%20Prediction\%20Project\%20-\%20SVM\%20Project}{GitHub}\\
+\textit{Python, Scikit-learn, SVM, Pandas, NumPy, Matplotlib, Seaborn}
+\vspace{3pt}
+\begin{itemize}
+  \item Built a binary classification model to predict diabetes onset using the Pima Indians Diabetes Dataset with Support Vector Machine (SVM).
+  \item Performed end-to-end data preprocessing -- missing value treatment, feature scaling with StandardScaler, and stratified train-test split.
+  \item Evaluated model using accuracy, precision, recall, and F1-score; visualized feature correlations using Seaborn heatmaps to guide feature selection.
+  \item Applied hyperparameter tuning (kernel, C, gamma) to optimize SVM classification performance on healthcare data.
+\end{itemize}
+
+\vspace{10pt}
+
+\textbf{Regression Projects -- Predictive Modelling} \hfill
+\href{https://github.com/sudarshancoding/ml-projects/tree/main/Regression\%20Projects}{GitHub}\\
+\textit{Python, Scikit-learn, Linear/Ridge/Polynomial Regression, Pandas, Matplotlib, Seaborn}
+\vspace{3pt}
+\begin{itemize}
+  \item Developed multiple regression models (Linear, Ridge, Polynomial) to predict continuous outcomes such as house prices and salary estimates.
+  \item Performed EDA and feature engineering -- identified key predictors, handled outliers, and reduced multicollinearity to improve model reliability.
+  \item Benchmarked models using R\textsuperscript{2} score, MAE, and RMSE; validated assumptions via residual plots and prediction curves.
+  \item Delivered well-documented Jupyter notebooks demonstrating the complete ML pipeline from raw data ingestion to final predictions.
+\end{itemize}
+
+% ============================================================
+% TECHNICAL SKILLS
+% ============================================================
+\ressection{T E C H N I C A L \ S K I L L S}
+
+\textbf{Programming Languages:}\enspace Python, SQL
+
+\vspace{5pt}
+\textbf{Python Libraries:}\enspace Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
+
+\vspace{5pt}
+\textbf{Machine Learning:}\enspace Regression \& Classification, Clustering, Model Training \& Evaluation, Feature Engineering, Hyperparameter Tuning, Cross-Validation, SVM
+
+\vspace{5pt}
+\textbf{Data Analysis:}\enspace Data Cleaning, Data Transformation, Outlier Detection, Exploratory Data Analysis (EDA), Data Visualization
+
+\vspace{5pt}
+\textbf{Databases:}\enspace MySQL, SQL (Joins, Group By, Subqueries, Window Functions -- Basic to Advanced)
+
+\vspace{5pt}
+\textbf{Tools:}\enspace Jupyter Notebook, Google Colab, Git, GitHub, VS Code
+
+% ============================================================
+% EDUCATION
+% ============================================================
+\ressection{E D U C A T I O N}
+
+\textbf{Chandigarh Group of Colleges, Jhanjeri} \hfill \textit{CGPA: 7.88}\\
+\textit{Bachelor of Technology in Computer Science and Engineering} \hfill 2017 -- 2021
+
+\vspace{6pt}
+Relevant Coursework: Data Structures and Algorithms, Database Management Systems, Statistics and Probability,
+Machine Learning, Artificial Intelligence, Object-Oriented Programming.
+
+\vspace{8pt}
+\textbf{Certifications:}\enspace
+\href{https://udemy-certificate.s3.amazonaws.com/image/UC-PBAV8UZ1.jpg}{Python -- Udemy}
+\enspace\textbullet\enspace
+\href{https://www.hackerrank.com/certificates/e93deb1c9734}{Python (Basic) -- HackerRank}
+\enspace\textbullet\enspace
+\href{https://www.hackerrank.com/certificates/044376f97a59}{SQL (Basic) -- HackerRank}
+\enspace\textbullet\enspace
+\href{https://www.hackerrank.com/certificates/10a353d27503}{SQL (Intermediate) -- HackerRank}
+\enspace\textbullet\enspace
+\href{https://www.hackerrank.com/certificates/09622e473245}{SQL (Advanced) -- HackerRank}
+\enspace\textbullet\enspace
+\href{https://www.coursera.org/account/accomplishments/certificate/UEDDGW9V5SK6}{Python for Data Science, AI Development}
+\enspace\textbullet\enspace
+\href{https://www.coursera.org/account/accomplishments/verify/46RIO7HRCXWR}{Supervised Machine Learning: Regression and Classification}
+
+\end{document}`;
 
   // Show editor panel only when ?edit is in the URL — invisible to regular visitors
   (function checkEditMode() {
