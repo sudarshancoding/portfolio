@@ -991,6 +991,19 @@
     backdrop-filter: blur(2px);
 }
 
+/* ===== Light Theme Animation ===== */
+[data-theme="light"] .animated-bg li {
+    background: rgba(37, 99, 235, 0.12);
+    border: 1px solid rgba(37, 99, 235, 0.35);
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.12);
+}
+
+/* ===== Dark Theme Animation ===== */
+[data-theme="dark"] .animated-bg li {
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.20);
+}
+
 /* Floating Shapes */
 
 .animated-bg li:nth-child(1) {
