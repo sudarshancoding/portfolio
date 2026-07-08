@@ -133,10 +133,15 @@
   /* ===== HERO ===== */
   #hero {
     min-height: 100vh;
-    display: flex; align-items: center;
+    display: flex;
+    align-items: center;
     padding: 120px 2rem 80px;
-    position: relative; overflow: hidden;
-  }
+    position: relative;
+    overflow: hidden;
+
+    /* Add this */
+    background: var(--bg);
+}
   .hero-bg {
     position: absolute; inset: 0; pointer-events: none;
     overflow: hidden;
@@ -957,9 +962,9 @@
   /* ===== ANIMATED BACKGROUND ===== */
   /* ===== ANIMATED BACKGROUND ===== */
 
-  body {
+  /* body {
     background: #0f172a;
-}
+} */
 
 .animated-bg {
     position: fixed;
@@ -1061,6 +1066,14 @@
     height: 90px;
     animation-delay: 10s;
     animation-duration: 28s;
+}
+
+[data-theme="light"] .animated-bg {
+    opacity: 0.15;
+}
+
+[data-theme="dark"] .animated-bg {
+    opacity: 1;
 }
 
 @keyframes floatUp {
