@@ -1,8 +1,2 @@
 # Ignore Vercel deployment files
 .vercel/
-
-# Ignore the React project folder
-react-portfolio/
-
-# Ignore the zip file
-react-portfolio.zip
