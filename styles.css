@@ -65,7 +65,82 @@
     -moz-osx-font-smoothing: grayscale;
   }
   a { text-decoration: none; color: inherit; }
-  img { display: block; max-width: 100%; }
+  /* ======Hero Image CSSS */
+
+  .hero-photo-wrap {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.hero-photo-ring {
+  width: 400px;
+  height: 400px;
+  padding: 6px;
+  box-sizing: border-box;
+  border: 4px solid #2563eb;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 32%;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .hero-photo-wrap,
+  .hero-photo-ring {
+    width: 320px;
+    height: 320px;
+  }
+
+  .hero-photo-ring {
+    padding: 5px;
+    border-width: 3px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero-photo-wrap,
+  .hero-photo-ring {
+    width: 240px;
+    height: 240px;
+  }
+
+  .hero-photo-ring {
+    padding: 4px;
+    border-width: 3px;
+  }
+
+  .hero-photo {
+    object-position: center 32%;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .hero-photo-wrap,
+  .hero-photo-ring {
+    width: 210px;
+    height: 210px;
+  }
+}
+
+  /* ======Hero Image CSSS End */
 
   /* ===== SCROLLBAR ===== */
   ::-webkit-scrollbar { width: 4px; }
